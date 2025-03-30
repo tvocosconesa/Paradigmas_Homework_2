@@ -10,7 +10,7 @@ int main(){
         mi_reloj.interface();
         mi_reloj.mostrarHora();
         mi_reloj.changeFormat();
-
+        cout << mi_reloj.getHour()  << "\n";
 
     }
     

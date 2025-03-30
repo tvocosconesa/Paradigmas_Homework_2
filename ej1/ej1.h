@@ -21,13 +21,11 @@ public:
     Reloj(int hour, int min, int sec);
     Reloj(int hour, int min, int sec, std::string nm);
     
-
     // Declaración de métodos
     int getHour();
     int getMin();
     int getSec();
     string getMeridian();
-
     void interface();
     void changeTime(int n , int change);
     void changeTime(int n , string change);
