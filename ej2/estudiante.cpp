@@ -12,7 +12,7 @@ bool Estudiante::operator<(const Estudiante& otro) const {
     return name < otro.name; 
 }
 
-ostream& operator<<(std::ostream& os, const Estudiante& est) {
+ostream& operator<<(ostream& os, const Estudiante& est) {
     os << est.name;  
     return os;
 }
