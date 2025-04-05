@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <array>
 #include <tuple>
+#include <memory>
 using namespace std;
 
 
@@ -18,8 +19,11 @@ public:
     // Constructor
     
     Estudiante(string name, vector<tuple<string, int>> classe, int legajo);
-    ~Estudiante();    
-    // Metodos
+    
+    bool operator<(const Estudiante& otro) const;
+    friend ostream& operator<<(ostream& os, const Estudiante& est);
+
+    vector<tuple<string, int>> getClases();
     string getName();
     float promedio();
     int getLegajo();
@@ -29,20 +33,24 @@ public:
 class Curso{
 
 private:
-    vector<Estudiante> estudiantes;
+    vector<shared_ptr <Estudiante>> estudiantes;
     int size; 
+    string name;
 
 public:     
-    Curso();
+    Curso(string name);
+    Curso(const Curso& otro );
+    string get_name();
     
+    void set_name(const string& new_name);
     void print();
     bool search(int legajo);
     bool completo();
-    void inscribir(Estudiante Estudiante);
+    void inscribir(shared_ptr <Estudiante> estudiante);
     void desinscribir(int legajo);
 
 };
 
-
+void menu(vector<Curso>* cursos, vector<shared_ptr <Estudiante>>* estudiantes);
 
 

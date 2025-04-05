@@ -8,9 +8,16 @@ Estudiante ::Estudiante( string name, vector<tuple<string, int>> clases, int leg
     cout << "Constructor llamado para:" << name << endl;
 }
    
-Estudiante ::~Estudiante() {
-    // cout << "Destructor llamado para Estudiante" << name << std::endl;
+bool Estudiante::operator<(const Estudiante& otro) const {
+    return name < otro.name; 
 }
+
+ostream& operator<<(std::ostream& os, const Estudiante& est) {
+    os << est.name;  
+    return os;
+}
+
+vector<tuple<string, int>> Estudiante:: getClases() {return clases;}
 
 string Estudiante::getName() { return name; }
 
