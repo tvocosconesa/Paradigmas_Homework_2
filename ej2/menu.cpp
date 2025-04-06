@@ -4,6 +4,7 @@ void menu(vector<Curso>* cursos, vector< shared_ptr < Estudiante>>* estudiantes)
     int option;
         
     do{
+        cout << "\n";
         cout << "                   Menú                  " << endl;
         cout << " ----------------------------------------" << endl;
         cout << " 1) Mostrar cursos" << endl;
@@ -35,11 +36,11 @@ void menu(vector<Curso>* cursos, vector< shared_ptr < Estudiante>>* estudiantes)
                 cout << "      creación de curso" << endl;
                 cout << "------------------------------\n";
                 cout << "Ingrese el nombre de su nuevo curso: ";
-                cin >> name;
+                getline(cin >> ws , name);
                 cin.ignore();
 
                 cout << "\n Este nuevo curso comparte alumnos con otro? (si / no): ";
-                cin >> option;
+                getline(cin >> ws , option);
                 cin.ignore();
                 if (option == "si") {
                     int selected;
@@ -65,24 +66,23 @@ void menu(vector<Curso>* cursos, vector< shared_ptr < Estudiante>>* estudiantes)
                 string name;
                 int legajo;
                 int nro_materias;
-                vector<tuple < string, int>> clases;
-                cout << "\n Ingrese el nombre del nuevo alumno:" << endl;
+                vector<tuple < string, double>> clases;
+                cout << "\n Ingrese el nombre del nuevo alumno:" ;
                 getline(cin >> ws, name);
-                cin.ignore();
-                cout << " Ingrese el numero de legajo del nuevo alumno:" << endl;
+
+                cout << "\n Ingrese el numero de legajo del nuevo alumno:" ;
                 cin >> legajo;
                 cin.ignore();
                 
-                cout << "Cuantas materias tiene ya cursadas este alumno?:" << endl;
+                cout << "\n Cuantas materias tiene ya cursadas este alumno?:" ;
                 cin >> nro_materias;
                 cin.ignore();
 
                 for(int i = 0 ; i < nro_materias ; i++){
                     string clase;
-                    int nota;
+                    double nota;
                     cout << "ingrese el nombre de la clase nro " << i+1 << ": " << endl;
                     getline(cin >> ws, clase);
-                    cin.ignore();
                     
                     cout << "Ingrese la nota final en esta clase: " << endl;
                     cin >> nota;
@@ -159,20 +159,18 @@ void menu(vector<Curso>* cursos, vector< shared_ptr < Estudiante>>* estudiantes)
                 cout << "---> ";
                 cin >> n;
             
-                // Validar la entrada del usuario
                 if (cin.fail() || n < 1 || n > cursos->size()) {
-                    cin.clear(); // Limpiar el estado de error de `cin`
-                    cin.ignore(); // Ignorar la entrada inválida
+                    cin.clear(); 
+                    cin.ignore(); 
                     cout << "Opción inválida. Por favor, seleccione un curso válido." << endl;
                     break;
                 }
             
-                // Mostrar los estudiantes del curso seleccionado
                 (*cursos)[n-1].print();
                 break;
             }
                 
-            case 7: // verificar si esta completo un curso
+            case 7: 
                 int m;
                 cout << " Seleccione un curso: " << endl;
                 cout << "------------------------------" << endl;
@@ -183,13 +181,13 @@ void menu(vector<Curso>* cursos, vector< shared_ptr < Estudiante>>* estudiantes)
              
                if ((*cursos)[m-1].completo()) cout << "El curso está lleno. " << endl;
                 
-                else "El curso no está lleno";
+                else cout << "El curso no está lleno" << endl;
 
                 break;
             case 8:  {// Buscar alumno 
                 int legajo;
-                bool found = false;  // Bandera para saber si lo encontramos
-                
+                bool found = false;  
+
                 cout << "     Busqueda de alumno:" << endl;
                 cout << "------------------------------" << endl;
                 cout << " Ingrese el legajo del alumno buscado: ";
@@ -198,21 +196,27 @@ void menu(vector<Curso>* cursos, vector< shared_ptr < Estudiante>>* estudiantes)
 
                 for (int i = 0 ; i < estudiantes->size() ; i++){
                     if ((*estudiantes)[i]->getLegajo() == legajo){
-                        cout << "\n Estudiante encontrado" << endl;
+                        cout << "\n Estudiante: encontrado" << endl;
                         cout << "\n   Perfil estudiantil:" << endl;
                         cout << "------------------------------" << endl;
-                        cout << "Nombre: " << (*estudiantes)[i]->getName() << endl;  // ERROR: Antes imprimías 'legajo' en lugar del nombre
-                        cout << "Legajo: " << (*estudiantes)[i]->getLegajo() << endl;
-                        cout << "\n     Materias ya cursadas: " << endl;
-                        cout << "------------------------------" << endl;
-                        cout << "     Materia: nota final" << endl;
-
-                        vector<tuple<string, int>> clases = (*estudiantes)[i]->getClases();
-                        for (int j = 0 ; j < clases.size() ; j++ ){ 
-                            cout << j+1 << ") " << get<0>(clases[j]) << ": " << get<1>(clases[j]) << endl;
+                        cout << " - Nombre: " << (*estudiantes)[i]->getName() << endl;  // ERROR: Antes imprimías 'legajo' en lugar del nombre
+                        cout << " - Legajo: " << (*estudiantes)[i]->getLegajo() << endl;
+                        cout << "\nMaterias ya cursadas: " << endl;
+                        cout << "-----------------------" << endl;
+                
+                        
+                        vector<tuple<string, double>> clases = (*estudiantes)[i]->getClases();
+                        if (clases.size() > 0 ){
+                            for (int j = 0 ; j < clases.size() ; j++ ){ 
+                                cout << j+1 << ") " << get<0>(clases[j]) << ": " << get<1>(clases[j]) << endl;
+                            }
+                            cout << "Promedio general: " << (*estudiantes)[i]->promedio() << endl;
+                            cout << "\n";
                         }
-                        cout << "Promedio general: " << (*estudiantes)[i]->promedio() << endl;
-                        cout << "\n";
+
+                        else{
+                            cout << "El alumno no tiene materias cerradas, no hay notas cargadas" << endl;
+                        }
                         found = true;
                         break;
                     }

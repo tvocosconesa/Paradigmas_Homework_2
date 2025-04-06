@@ -1,6 +1,6 @@
 #include "ej2.h"
 
-Estudiante ::Estudiante( string name, vector<tuple<string, int>> clases, int legajo){
+Estudiante ::Estudiante( string name, vector<tuple<string, double>> clases, int legajo){
     if(legajo < 1 || legajo > 99999) throw "ERROR: Numero de legajo invalido";
     this -> name = name;
     this -> legajo = legajo;
@@ -17,14 +17,14 @@ ostream& operator<<(ostream& os, const Estudiante& est) {
     return os;
 }
 
-vector<tuple<string, int>> Estudiante:: getClases() {return clases;}
+vector<tuple<string, double>> Estudiante:: getClases() {return clases;}
 
 string Estudiante::getName() { return name; }
 
 int Estudiante ::getLegajo() { return legajo; }
 
 float Estudiante :: promedio(){
-    int suma = 0;
+    double suma = 0;
     for (size_t i = 0; i < clases.size(); i++) {
         suma += get<1>(clases[i]);  
     }

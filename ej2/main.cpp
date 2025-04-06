@@ -14,11 +14,11 @@ int main() {
 
         // Crear estudiantes
         auto estudiante1 = make_shared<Estudiante>("Juancito Rodriguez",
-            vector<tuple<string, int>>{{"Analisis", 9}, {"Fisica", 7}}, 12345);
+            vector<tuple<string, double>>{{"Analisis", 9.0}, {"Fisica", 7.6}}, 12345);
         auto estudiante2 = make_shared<Estudiante>("Maria Gonzalez",
-            vector <tuple<string, int>>{{"Historia", 8}, {"Geografia", 7}}, 67890);
+            vector <tuple<string, double>>{{"Historia", 8.0}, {"Geografia", 7.5}}, 67890);
         auto estudiante3 = make_shared<Estudiante>("Carlos Perez",
-            vector<tuple<string, int>>{{"Analisis", 6}, {"Programacion", 4}}, 54321);
+            vector<tuple<string, double>>{{"Analisis", 6.0}, {"Programacion", 4.3}}, 54321);
 
         std::vector<std::shared_ptr<Estudiante>> estudiantes = { estudiante1, estudiante2, estudiante3 };
 

@@ -12,18 +12,18 @@ class Estudiante{
 
 private:
     string name;
-    vector<tuple<string, int>> clases;
+    vector<tuple<string, double>> clases;
     int legajo;
 
 public:
     // Constructor
     
-    Estudiante(string name, vector<tuple<string, int>> classe, int legajo);
+    Estudiante(string name, vector<tuple<string, double>> classe, int legajo);
     
     bool operator<(const Estudiante& otro) const;
     friend ostream& operator<<(ostream& os, const Estudiante& est);
 
-    vector<tuple<string, int>> getClases();
+    vector<tuple<string, double>> getClases();
     string getName();
     float promedio();
     int getLegajo();
