@@ -11,7 +11,7 @@ private:
     int hour;
     int min;
     int sec;
-    std::string nm;
+    string nm;
 
 public:
     // Declaración de constructores
