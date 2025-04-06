@@ -1,7 +1,7 @@
 #ifndef RELOJ_H
 #define RELOJ_H
-
 #include <iostream>
+#include <memory>  
 #include <string>
 #include <iomanip>
 using namespace std;
@@ -26,9 +26,9 @@ public:
     int getMin();
     int getSec();
     string getMeridian();
-    void interface();
+    void interfaceDeCambios();
     void changeTime(int n , int change);
-    void changeTime(int n , string change);
+    void changeTime(string change);
     void changeFormat();
     void mostrarHora() const;
 };

@@ -78,7 +78,7 @@ void  Reloj::changeTime(int n, int change){
     }
 }
 
-void Reloj:: changeTime(int n, string change){
+void Reloj:: changeTime(string change){
     if(change != "a.m." && change != "p.m.") throw runtime_error("ERROR: Invalid nm inserted");
     nm = change;
 }
@@ -93,36 +93,29 @@ void Reloj:: changeFormat(){
 
 }
 
-void Reloj::interface (){
-    int option;
-    cout << "What would you want to do? : \n 1) Change setted time \n 2) Print time \n ---> ";
-
-    cin >> option;
-    cin.ignore();
-    if (option != 1 && option != 2) throw runtime_error("ERROR: Invalid option inserted ");
-    
-    if (option == 1){
+void Reloj::interfaceDeCambios (){
+  
+  
         int n;
-        cout << "Time change! select what would you like yo change: \n 1) Hour \n 2) minutes \n 3) seconds \n 4) meridiem positions (am / pm) \n ---> ";
+        cout << "Time change! seleccione el cambio que desee hacer: \n 1) Cambiar Hs \n 2) Cambiar Min \n 3) Cambiar secs \n 4) Cambiar a.m. / p.m. \n ---> ";
         
         cin >> n;
         cin.ignore();
 
         if(n == 4){
             string change;
-            cout << "Insert your change: \n --->";
+            cout << "Ingrese su cmabio: \n --->";
             cin >> change;
             cin.ignore();
-            changeTime(n, change);
+            changeTime(change);
 
         }
         else{
             int change;
-            cout << "Insert your change: \n --->";
+            cout << "Ingrese su vambio: \n --->";
             cin >> change;
             cin.ignore();
             changeTime(n, change);
         } 
-    }
 
 }
