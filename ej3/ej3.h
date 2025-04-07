@@ -13,6 +13,6 @@ class Numeros{
     virtual shared_ptr<Numeros> resta(const shared_ptr<Numeros>& otro) const = 0;
     virtual shared_ptr<Numeros> producto(const shared_ptr<Numeros>& otro) const = 0;
 
-    virtual void toString() const = 0;
+    virtual string toString() const = 0;
 };
 

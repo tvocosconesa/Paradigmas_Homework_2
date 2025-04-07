@@ -35,7 +35,6 @@ bool Curso:: completo(){
 void Curso :: inscribir(shared_ptr<Estudiante> estudiante){
 
     estudiantes.push_back(estudiante);
-    // cout << estudiantes[-1]->getName() << endl;
     this ->size++;
 }
 

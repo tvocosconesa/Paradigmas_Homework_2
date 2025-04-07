@@ -7,7 +7,6 @@
 #include <vector>
 using namespace std;
 
-// mi idea es que una cuenta general tenga acceso a la caja de ahorro y cuanta corriente del titular. y en base a esta relacion que estos interactuen
 class Cuenta_general { 
 
     private:

@@ -34,8 +34,8 @@ class Enteros : public Numeros{
         }
 
 
-        void toString() const override{
-            cout << to_string(value) << endl;
+        string toString() const override{
+            return to_string(value);
         }
 };
 
@@ -74,8 +74,8 @@ class Reales : public Numeros{
         throw runtime_error("Error en el producto de Reales");
     }
 
-    void toString() const override{
-        cout << to_string(value) << endl;
+    string toString() const override{
+       return to_string(value);
     }
 };
 
@@ -113,8 +113,8 @@ class Complejos : public Numeros{
         throw runtime_error("Error en el producto de Complejos");
     }
 
-    void toString() const override{
-        string s = to_string(value.real()) + "+" + to_string(value.imag()) + "i";
-        cout << s << endl;
+    string toString() const override{
+        string s = to_string(value.real()) + " + " + to_string(value.imag()) + "i";
+        return s ;
     }
 };

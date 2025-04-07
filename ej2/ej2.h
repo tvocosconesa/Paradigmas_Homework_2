@@ -16,7 +16,6 @@ private:
     int legajo;
 
 public:
-    // Constructor
     
     Estudiante(string name, vector<tuple<string, double>> classe, int legajo);
     

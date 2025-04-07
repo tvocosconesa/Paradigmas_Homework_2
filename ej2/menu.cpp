@@ -126,7 +126,7 @@ void menu(vector<Curso>* cursos, vector< shared_ptr < Estudiante>>* estudiantes)
             case 5:{
                 int option;
                 int legajo;
-                cout << "        Desinscripción:";
+                cout << "        Desinscripción:" << endl;
                 cout << "------------------------------\n";
                 cout << "Cursos: \n";
                 for (int i = 0 ; i < cursos->size(); i++){ cout << i+1 << ") " << (*cursos)[i].get_name() << endl;}
