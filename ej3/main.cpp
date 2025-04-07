@@ -1,4 +1,3 @@
-// #include "ej3.h"
 #include "clases.cpp"
 int main() {
     // Test con Enteros
@@ -28,8 +27,8 @@ int main() {
     cout << "Producto: " << r_producto->toString() << endl;
 
     // Test con Complejos
-    shared_ptr<Numeros> c1 = make_shared<Complejos>(complex<double>(1.0, 2.0));  // 1 + 2i
-    shared_ptr<Numeros> c2 = make_shared<Complejos>(complex<double>(3.0, -1.0)); // 3 - i
+    shared_ptr<Numeros> c1 = make_shared<Complejos>(complex<double>(1.0, 2.0));  //  -> 1 + 2i
+    shared_ptr<Numeros> c2 = make_shared<Complejos>(complex<double>(3.0, -1.0)); //  -> 3 - i
 
     auto c_suma = dynamic_pointer_cast<Complejos>(c1->suma(c2));
     auto c_resta = dynamic_pointer_cast<Complejos>(c1->resta(c2));

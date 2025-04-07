@@ -71,11 +71,9 @@ int main() {
                 return 1;
         }
 
-        // Usás el reloj como puntero -> con flecha (->)
         cout << "\nEstado actual del reloj:\n";
         mireloj->mostrarHora();
 
-        // Acá podés usar un bucle interactivo:
         char seguir;
         do {
             cout << "\nOpciones del menú:\n";

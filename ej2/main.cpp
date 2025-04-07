@@ -5,14 +5,12 @@
 
 int main() {
     try {
-        // Crear cursos
         Curso matematica("Matematica");
         Curso economia("Economia");
 
         vector<Curso> cursos;
         
 
-        // Crear estudiantes
         auto estudiante1 = make_shared<Estudiante>("Juancito Rodriguez",
             vector<tuple<string, double>>{{"Analisis", 9.0}, {"Fisica", 7.6}}, 12345);
         auto estudiante2 = make_shared<Estudiante>("Maria Gonzalez",
@@ -20,9 +18,8 @@ int main() {
         auto estudiante3 = make_shared<Estudiante>("Carlos Perez",
             vector<tuple<string, double>>{{"Analisis", 6.0}, {"Programacion", 4.3}}, 54321);
 
-        std::vector<std::shared_ptr<Estudiante>> estudiantes = { estudiante1, estudiante2, estudiante3 };
+        vector<shared_ptr<Estudiante>> estudiantes = { estudiante1, estudiante2, estudiante3 };
 
-        // Inscribir estudiantes en el curso
         std::cout << "Inscribiendo estudiantes..." << std::endl;
         matematica.inscribir(estudiante1);
         matematica.inscribir(estudiante2);
@@ -31,7 +28,9 @@ int main() {
         
         cursos.push_back(matematica);
         cursos.push_back(economia);
-        // Llamar a menu con referencias para evitar copias
+        
+        
+        
         menu(&cursos, &estudiantes);
 
     } catch (const std::exception& e) {

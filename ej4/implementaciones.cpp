@@ -23,7 +23,7 @@ void CajaDeAhorro :: mostrarInfo() {
 
     cout << "   Info de Caja de ahorro" << endl;
     cout << "---------------------------------------" << endl;
-    cout << " - Balance: $" << fixed << setprecision(4) << balance << std::endl;
+    cout << " - Balance: $" << fixed << setprecision(2) << balance << std::endl;
     cout << " - Titular de la cuenta: " << titular << endl;
     cout << "---------------------------------------" << endl;
 }
@@ -51,7 +51,7 @@ void CuentaCorriente :: mostrarInfo(){
 
     cout << "   Info de Cuenta Corriente" << endl;
     cout << "---------------------------------------" << endl;
-    cout << " - Balance: $" << fixed << setprecision(4) << balance << std::endl;
+    cout << " - Balance: $" << fixed << setprecision(2) << balance << std::endl;
     cout << " - Titular de la cuenta: " << titular << endl;
     cout << "---------------------------------------" << endl;
 }

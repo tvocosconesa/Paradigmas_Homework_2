@@ -22,7 +22,7 @@ void menu(vector<Curso>* cursos, vector< shared_ptr < Estudiante>>* estudiantes)
         cout << "\n";
         switch (option){
         
-            case 1:
+            case 1: // mostrar cursos 
 
                 cout << "            Cursos" << endl;
                 cout << "------------------------------\n" << endl;
@@ -50,7 +50,7 @@ void menu(vector<Curso>* cursos, vector< shared_ptr < Estudiante>>* estudiantes)
                     cout << "Seleccione un curso: ";
                     cin >> selected;
                     
-                    Curso new_curso = (*cursos)[selected-1];
+                    Curso new_curso = (*cursos)[selected-1];    // copy del curso 
                     new_curso.set_name(name);
                     cursos->push_back(new_curso);
                 }
@@ -123,7 +123,7 @@ void menu(vector<Curso>* cursos, vector< shared_ptr < Estudiante>>* estudiantes)
 
                 break;
             }
-            case 5:{
+            case 5:{ // Desinscribir alumno de un curso 
                 int option;
                 int legajo;
                 cout << "        Desinscripción:" << endl;
@@ -170,7 +170,7 @@ void menu(vector<Curso>* cursos, vector< shared_ptr < Estudiante>>* estudiantes)
                 break;
             }
                 
-            case 7: 
+            case 7: // verificar si un curso esta lleno 
                 int m;
                 cout << " Seleccione un curso: " << endl;
                 cout << "------------------------------" << endl;
@@ -184,7 +184,7 @@ void menu(vector<Curso>* cursos, vector< shared_ptr < Estudiante>>* estudiantes)
                 else cout << "El curso no está lleno" << endl;
 
                 break;
-            case 8:  {// Buscar alumno 
+            case 8:  {// Buscar alumno y mostrar su info 
                 int legajo;
                 bool found = false;  
 
@@ -199,7 +199,7 @@ void menu(vector<Curso>* cursos, vector< shared_ptr < Estudiante>>* estudiantes)
                         cout << "\n Estudiante: encontrado" << endl;
                         cout << "\n   Perfil estudiantil:" << endl;
                         cout << "------------------------------" << endl;
-                        cout << " - Nombre: " << (*estudiantes)[i]->getName() << endl;  // ERROR: Antes imprimías 'legajo' en lugar del nombre
+                        cout << " - Nombre: " << (*estudiantes)[i]->getName() << endl; 
                         cout << " - Legajo: " << (*estudiantes)[i]->getLegajo() << endl;
                         cout << "\nMaterias ya cursadas: " << endl;
                         cout << "-----------------------" << endl;
@@ -231,7 +231,7 @@ void menu(vector<Curso>* cursos, vector< shared_ptr < Estudiante>>* estudiantes)
             }
             }
 
-    } while (option != 9);
+    } while (option != 9); // corto el programa
 
     cout << "------------------------------ \n";
     cout << "    Programa Finalizado."      << endl;

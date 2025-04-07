@@ -53,18 +53,17 @@ void Curso:: desinscribir(int legajo){
 void Curso:: print(){
 
     std::sort(this->estudiantes.begin(), this->estudiantes.end(), 
-    [](const std::shared_ptr<Estudiante>& e1, const std::shared_ptr<Estudiante>& e2) {
-        return *e1 < *e2; // Comparando por nombre
+    [](const std::shared_ptr<Estudiante>& e1, const std::shared_ptr<Estudiante>& e2) { // comparo por nombre
+        return *e1 < *e2; 
     }
     );
 
-    // Imprimir los estudiantes ordenados
     cout << "------------------------------------" << endl;
     cout << " Estado actual del curso " << this->name << ':' << endl; 
     cout << "------------------------------------" << endl;
     
-    if (estudiantes.empty()) { cout << " El curso se encuentra vacio" << endl;}
-    for (int i = 0 ; i < this ->size ; i++) {
+    if (estudiantes.empty()) { cout << " El curso se encuentra vacio" << endl;} 
+    for (int i = 0 ; i < this ->size ; i++) {       // imprimo los estudiantes ordenados
         cout << " - " << *estudiantes[i] << endl;
     }
 }

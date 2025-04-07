@@ -4,10 +4,9 @@
 using namespace std;
 
 int main() {
-    // Crear una caja de ahorro con $1000
+    
     auto caja = make_shared<CajaDeAhorro>("Juan", 1000);
 
-    // Crear una cuenta corriente con $100 y vincularla con la caja de ahorro
     CuentaCorriente cuenta("Juan", 100, caja);
 
     cout << "\n== Estado inicial ==" << endl;
@@ -15,15 +14,16 @@ int main() {
     cuenta.mostrarInfo();
 
     cout << "\n== Intento de retiro de $50 desde cuenta corriente ==" << endl;
-    cuenta.retirar(50);  // Debería restar de cuenta corriente
+    cuenta.retirar(50); 
+    cuenta.mostrarInfo();
 
     cout << "\n== Intento de retiro de $200 desde cuenta corriente ==" << endl;
-    cuenta.retirar(200);  // Debería usar la caja de ahorro
+    cuenta.retirar(200);  
 
     cout << "\n== Intento de retiro de $2000 desde cuenta corriente ==" << endl;
-    cuenta.retirar(2000);  // No debería poder
+    cuenta.retirar(2000);  
 
-    cout << "\n== Estado final ==" << endl;
+    cout << "\n      == Resultado ==" << endl;
     caja->mostrarInfo();
     cuenta.mostrarInfo();
 
@@ -31,7 +31,7 @@ int main() {
     cuenta.depositar(100);
     caja->depositar(100);
 
-    cout << "Resultado:" << endl;
+    cout << "\n      == Resultado ==" << endl;
     cuenta.mostrarInfo();
     caja->mostrarInfo();
 
